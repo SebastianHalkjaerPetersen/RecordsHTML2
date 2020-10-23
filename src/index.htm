@@ -16,11 +16,16 @@
 </head>
 
 <body>
-  <h1>Hello</h1>
+  <h1>Get All</h1>
   <div id="app">
-    <input v-model="name" placeholder="Name">
-    <button v-on:click="sayHello()" class="btn btn-primary">Say hello</button>
-    <div>{{ records[] }}</div>
+    <button id="getAllButton" v-on:click="GetAllRecords()" class="btn btn-primary">Get all Records</button>
+
+    <ul id="recordlist" v-if="records.length">
+      <li v-for="record in records">
+        {{record.id}} {{record.title}} {{record.artist}} {{record.duration}} {{record.yearOfPublication}}
+      </li>
+    </ul>
+    <div>No Records</div>
   </div>
 
   <script src="bundle.js"></script>
